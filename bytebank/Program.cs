@@ -24,22 +24,51 @@
 //Console.WriteLine(contaDoPedro.numero_agencia);
 //Console.WriteLine(contaDoPedro.conta);
 
-using bytebank;
+//using bytebank;
 
-ContaCorrente contaDoAndre = new ContaCorrente();
-contaDoAndre.titular = "André Silva";
-contaDoAndre.numero_agencia = 15;
-contaDoAndre.conta = "1010-X";
-contaDoAndre.saldo = 100;
-Console.WriteLine("Saldo da conta do André = " + contaDoAndre.saldo);
+//ContaCorrente contaDoAndre = new ContaCorrente();
+//contaDoAndre.titular = "André Silva";
+//contaDoAndre.numero_agencia = 15;
+//contaDoAndre.conta = "1010-X";
+//contaDoAndre.saldo = 100;
+//Console.WriteLine("Saldo da conta do André = " + contaDoAndre.saldo);
 
-ContaCorrente contaDoAndre2 = new ContaCorrente();
-contaDoAndre2.titular = "André Silva";
-contaDoAndre2.numero_agencia = 15;
-contaDoAndre2.conta = "1010-X";
-contaDoAndre2.saldo = 100;
-Console.WriteLine("Saldo da conta do André = " + contaDoAndre2.saldo);
+//ContaCorrente contaDoAndre2 = new ContaCorrente();
+//contaDoAndre2.titular = "André Silva";
+//contaDoAndre2.numero_agencia = 15;
+//contaDoAndre2.conta = "1010-X";
+//contaDoAndre2.saldo = 100;
+//Console.WriteLine("Saldo da conta do André = " + contaDoAndre2.saldo);
 
-Console.WriteLine(contaDoAndre == contaDoAndre2);
+//Console.WriteLine(contaDoAndre == contaDoAndre2);
 
+using bytebank.Contas;
+using bytebank.Titular;
 
+Cliente cliente = new Cliente();
+cliente.nome = "André silva";
+cliente.Cpf = "123456789";
+cliente.Profissão = "Analista";
+
+ContaCorrente conta = new ContaCorrente();
+conta.titular = cliente;
+conta.conta = "1010-X";
+conta.numero_agencia = 15;
+conta.saldo = 100;
+
+Console.WriteLine("titular= " + conta.titular.nome);
+Console.WriteLine("cpf= " + conta.titular.Cpf);
+Console.WriteLine("profissão= " + conta.titular.Profissão);
+Console.WriteLine("n conta= " + conta.conta);
+Console.WriteLine("Saldo= " + conta.saldo);
+Console.WriteLine("n agencia= " + conta.numero_agencia);
+
+ContaCorrente conta2 = new ContaCorrente();
+conta2.titular = new Cliente();
+conta2.titular.nome = "jose souza";
+conta2.titular.Profissão = "Tester";
+conta2.titular.Cpf = "15236585892";
+conta2.conta = "999-X";
+conta2.numero_agencia = 15;
+conta2.saldo = 500;
+Console.WriteLine(conta2.titular.nome);
